@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Impact Student Council</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cactus+Classical+Serif&display=swap" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=EB Garamond' rel='stylesheet'>
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
+    <link rel="stylesheet" href="https://use.typekit.net/xyz123.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="logo_head">
+        <ul>
+            <li><img src="../images/cover_images/OSA Logo (1) (1).png" class="logo"></li>
+            <li>
+                <div class="logo_text">
+                    <h1 style="color: #004aad;">IMPACT</h1>
+                    <h1 style="color: #004aad; margin-left: -30px;">Student Council</h1>
+                </div>
+            </li>
+            <li><img src="../images/cover_images/MIT ADTU New Logo 2024.jpg" class="logo"></li>
+        </ul>
+    </div>
+    <div class="nav_bar">
+        <div class="nav">
+            <div class="nav_hamburger">
+                <ul>
+                    <li><a href="#" class="active">Home</a></li>
+                    <li class="nav_dropdown">
+                        <a class="nav_dropbtn">Events</a>
+                        <div class="nav_dropdown-content">
+                            <a href="upcoming_events.html">Upcoming Events</a>
+                            <a href="events.html">Past Events</a>
+                        </div>
+                    </li>
+                    <li><a href="#footer">ContactUs</a></li>
+                    <li class="nav_dropdown">
+                        <a class="nav_dropbtn"><i class="fal fa-solid fa-bars"></i></a>
+                        <div class="nav_dropdown-content-2">
+                            <a href="#" class="active">Home</a>
+                            <a href="upcoming_events.html">Upcoming Events</a>
+                            <a href="events.html">Past Events</a>
+                            <a href="our_team.html">Our Team</a>
+                            <a href="clubs.html">Clubs</a>
+                            <a href= "https://docs.google.com/spreadsheets/d/1NnWQGfw8_9DVxyk0lpHRqEKqK7dHKIXmljmCpdlS8WE/edit?usp=sharing"target="_blank">Event Calendar</a>
+                            <a href="../files/MIT_CODE_OF_CONDUCT.pdf" target="_blank">Code of Conduct</a>
+                            <a href="#footer">Contact Us</a>
+                            <a href="https://www.iviewd.com/mitadt/" target="_blank">Virtual Tour</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="nav_content">
+                <ul>
+                    <li><a href="#" class="active">Home</a></li>
+                    <li class="nav_dropdown">
+                        <a class="nav_dropbtn">Events</a>
+                        <div class="nav_dropdown-content">
+                        <a href="upcoming_events.html">Upcoming Events</a>
+                        <a href="events.html">Past Events</a>
+                    </div>
+                </li>
+                <li><a href="our_team.html">Our Team</a></li>
+                <li><a href="clubs.html">Clubs</a></li>
+                <li><a href= "https://docs.google.com/spreadsheets/d/1NnWQGfw8_9DVxyk0lpHRqEKqK7dHKIXmljmCpdlS8WE/edit?usp=sharing"target="_blank">Event Calendar</a></li>
+                <li><a href="news.html">News</a></li>
+                <li><a href="../files/MIT_CODE_OF_CONDUCT.pdf" target="_blank">Code of Conduct</a></li>
+                <li><a href="#footer">Contact Us</a></li>
+                <li><a href="https://www.iviewd.com/mitadt/" target="_blank">Virtual Tour</a></li>
+            </ul>
+            </div>
+        </div>
+    </div>
+    <!-- <div class="cover-container">
+        <div class="outer">
+            <div class="box">
+                <div class="line"></div>
+            </div>
+        </div>
+    </div> -->
+    <div class="carousel-container">
+        <!-- Carousel Wrapper that will be populated by JS -->
+        <div class="carousel"></div>
+        
+        <!-- Navigation Buttons -->
+        <button class="prev" onclick="prevSlide()">&#10094;</button>
+        <button class="next" onclick="nextSlide()">&#10095;</button>
+    </div>
+    <div class="events">
+        <div class="events_content">
+            <h2><span>Our</span> Flagship Events</h2>
+            <h3 style="margin-top: 60px; margin-bottom: 20px; text-align: justify;">At MIT-ADT University, we believe in fostering innovation, nurturing talent, and celebrating excellence. Our flagship events stand as vibrant testaments to our commitment to providing a dynamic and enriching campus experience.</h3>
+            <h3 style="margin-bottom: 60px; text-align: justify;">Dive into the heart of our most esteemed gatherings</h3>
+            <a href='events.html'>
+                <button>Explore More</button>
+            </a>
+        </div>
+            <div class="col">
+                <div class="row">
+                    <div>
+                        <div class="flip-card">
+                            <div class="flip-card-inner">
+                                <div class="flip-card-front">
+                                    <img src="../images/cover_images/event_1.jpg" class="event_photo">
+                                </div>
+                                <div class="flip-card-back1">
+                                    <h2>Spectra</h2>
+                                    <p style="text-align: justify;">A night of electrifying performances and cultural unity at MIT ADT's SPECTRA Cultural Night, setting the stage for the highly anticipated Band Night Extravaganza.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="flip-card">
+                            <div class="flip-card-inner">
+                                <div class="flip-card-front">
+                                    <img src="../images/cover_images/event_2.jpg" class="event_photo">
+                                </div>
+                                <div class="flip-card-back2">
+                                    <h2>Plogathon</h2>
+                                    <p style="text-align: justify;">The Plogathon Drive at MIT Art, Design and Technology University catalyzed environmental consciousness and collective action, marking National Youth Day 2024 with a resolute commitment to sustainable practices and waste management.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div>
+                        <div class="flip-card">
+                            <div class="flip-card-inner">
+                                <div class="flip-card-front">
+                                    <img src="../images/cover_images/event_3.jpg" class="event_photo">
+                                </div>
+                                <div class="flip-card-back3">
+                                    <h2>Garba Night</h2>
+                                    <p style="text-align: justify;">A dynamic fusion of tradition and modernity, Garba Night at MIT ADT University showcased the joyous spirit of unity and cultural diversity..</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="flip-card">
+                            <div class="flip-card-inner">
+                                <div class="flip-card-front">
+                                    <img src="../images/cover_images/event_4.jpg" class="event_photo">
+                                </div>
+                                <div class="flip-card-back4">
+                                    <h2>SITARA</h2>
+                                    <p style="text-align: justify;">The SiTARA National Innovation & Startup Summit 2023 at MIT-ADT University in Pune fostered collaboration and showcased the pivotal role of research in shaping India's future economy and competitiveness.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </div>
+    <div class="impact">
+        <div class="impact_head reveal">
+            <h2><span>Our</span> IMPACT</h2>
+        </div>
+        <div class="impacts">
+            <div class="impact_col reveal" style="text-align: left;">
+                <div class="impact_sec">
+                <h2 style="font-size: 30px;"><i class="fal fa-solid fa-rocket"></i></h2>
+                <h2 style="margin-bottom: 10px;"><span>Inspiring</span> Minds</h2>
+                <h3 style="text-align: justify;">
+                    <span2>Inspiring Minds</span2> reflects our dedication to encouraging intellectual curiosity and
+                    innovative thinking. We create an environment that stimulates students' imaginations and nurtures
+                    their desire for knowledge. By offering diverse learning experiences and opportunities, we aim to
+                    ignite a lifelong passion for discovery and personal growth.
+                </h3>
+                </div>
+                <img src="../images/timeline_photos/july_5_2.png">
+            </div>
+            <div class="impact_col_2 reveal" style="text-align: right;">
+                <img src="../images/timeline_photos/aug_4_1.png">
+                <div class="impact_sec">
+                    <h2 style="font-size: 30px;"><i class="fal fa-solid fa-medal"></i></h2>
+                <h2 style="margin-bottom: 10px;"><span>Promoting</span> Achievements</h2>
+                <h3 style="text-align: justify;">
+                    <span2>Promoting Achievements</span2> signifies our mission to support and highlight the
+                    accomplishments of every student. We provide platforms and opportunities for students to showcase
+                    their skills and talents, fostering a culture of excellence and motivation. By celebrating
+                    individual and collective successes, we inspire all students to strive for their best and take pride
+                    in their achievements.
+                </h3>
+            </div>
+            </div>
+            <div class="impact_col reveal" style="text-align: left;">
+                <div class="impact_sec">
+                <h2 style="font-size: 30px;"><i class="fal fa-solid fa-users"></i></h2>
+                <h2 style="margin-bottom: 10px;"><span>Cultivating</span> Togetherness</h2>
+                <h3 style="text-align: justify;">
+                    <span2>Cultivating Togetherness</span2> represents our focus on building a strong, inclusive, and
+                    supportive community. We aim to foster a sense of belonging and unity among students, encouraging
+                    collaboration, mutual respect, and lasting friendships. Through various activities and initiatives,
+                    we bring students together to create a positive and harmonious school environment.
+                </h3>
+            </div>
+            <img src="../images/timeline_photos/aug_14_2.png">
+            </div>
+        </div>
+    </div>
+    <div class="width100">
+        <div class="width1240">
+            <div class="bannerbelow_white_box">
+                <div class="width100 bannerbelow_white_innerbox">
+                    <div class="white_list">
+                        <a href="https://mituniversity.ac.in/aspirants/" target="_blank" style="text-decoration: none;">
+                            
+                            <div class="white_list_head width100">ASPIRANTS</div>
+                            <div class="white_list_content width100">Become a part of the MIT-ADTU Family</div>
+                            <div class="white_list_arrow width100"><a href="https://mituniversity.ac.in/aspirants/" target="_blank"><img
+                                        src="https://mituniversity.ac.in/assets_web/images/white_arrow.png"></a></div>
+                        </a>
+                    </div>
+                    
+                    <div class="white_list">
+                        <a href="https://mituniversity.ac.in/student/" target="_blank" style="text-decoration: none;">
+                            
+                            <div class="white_list_head width100">STUDENT</div>
+                            <div class="white_list_content width100">Your Success. Our Tradition.</div>
+                            <div class="white_list_arrow width100"><a href="https://mituniversity.ac.in/student/" target="_blank"><img
+                                        src="https://mituniversity.ac.in/assets_web/images/white_arrow.png"></a></div>
+                        </a>
+                    </div>
+                    <div class="white_list">
+                        <a href="https://alumni.mituniversity.edu.in/" target="_blank" target="_blank" style="text-decoration: none;">
+                            
+                            <div class="white_list_head width100">ALUMNI</div>
+                            <div class="white_list_content width100">One Purpose. One Mission. One Dream.</div>
+                            <div class="white_list_arrow width100"><a href="https://alumni.mituniversity.edu.in/"
+                                    target="_blank"><img src="https://mituniversity.ac.in/assets_web/images/white_arrow.png"></a></div>
+                        </a>
+                    </div>
+                    </script>
+                    <div class="white_list" style="border: 0px;">
+                        <a href="https://mituniversity.ac.in/placement-cell/" target="_blank" style="text-decoration: none;">
+                            
+                            <div class="white_list_head width100">CORPORATE</div>
+                            <div class="white_list_content width100">Hire Fresh Talent at MIT-ADT University</div>
+                            <div class="white_list_arrow width100"><a href="https://mituniversity.ac.in/placement-cell/" target="_blank"><img
+                                        src="https://mituniversity.ac.in/assets_web/images/white_arrow.png"></a></div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="slider">
+        <h2 style="text-align: center; margin-top: 3%; font-size: 46px;"> Some Highlights of Our</h2>
+        <h2 style="text-align: center; color: black; margin-top: -1%; margin-bottom: -5%; font-size: 40px;">Exclusive Events</h2>
+        <div class="list">
+            <div class="item active" >
+                <img src="../images/timeline_photos/apr_1_3.png">
+                <h2>Gudi Padwa</h2>
+            </div>
+            <div class="item">
+                <img src="../images/timeline_photos/mar_3_1.png">
+                <h2>Helmet Janjagruti Abhiyan</h2>
+            </div>
+            <div class="item">
+                <img src="../images/timeline_photos/jan_7_1.png">
+                <h2>West Zone Youth Festival</h2>
+            </div>
+            <div class="item">
+                <img src="../images/timeline_photos/feb_6_2.png">
+                <h2>SciFEST</h2>
+            </div>
+            <div class="item">
+                <img src="../images/timeline_photos/feb_7_1.png">
+                <h2>Club CATALYST</h2>
+            </div>
+            <div class="item">
+                <img src="../images/timeline_photos/feb_4_3.png">
+                <h2>Shiv Jayanti</h2>
+            </div>
+            <div class="item">
+                <img src="../images/timeline_photos/mar_7_2.png">
+                <h2>Holika Dahan</h2>
+            </div>
+        </div>
+        <div class="circle">
+        </div>
+        <div class="arow">
+            <button id="prev"><</button>
+            <button id="next">></button>
+        </div>
+    </div>
+    <div class="join-us">
+        <h2>Stay updated with our latest happenings!</h2>
+        <p>Join us on WhatsApp and Telegram to receive the latest updates, news, and more!</p>
+        <div class="join-links">
+            <a href="https://chat.whatsapp.com/LSei1YqL5N5L8BGSA5Cglw" target="_blank" rel="noopener noreferrer" class="whatsapp">
+                <i class="fab fa-whatsapp w3-hover-opacity"></i>
+                Join WhatsApp Group
+            </a>
+            <a href="https://t.me/StudentSuccess_MITADTU" target="_blank" rel="noopener noreferrer" class="telegram">
+                <i class="fab fa-telegram w3-hover-opacity"></i>
+                Join Telegram Channel
+            </a>
+        </div>
+    </div>
+    <div class="stack">
+        <!-- <div class="card">
+            <figure class="snip1390">
+                <div class="img_test">
+                    <img src="../images/team_images/suraj_sir.jpg" class="profile" />
+                <br>
+                <h3 style="color: white;">Dr. Suraj Bhoyar</h3>
+                </div>
+                <figcaption>
+                  <blockquote>
+                    <h3>The future belongs to those who believe in the beauty of their dreams.</h3>
+                  </blockquote>
+                </figcaption>
+              </figure>
+            </div> -->
+        <div class="card">
+            <figure class="snip1390">
+                <div class="img_test">
+                <img src="../images/team_images/team_12.png" class="profile" />
+                <br>
+                <h3 style="color: white; margin-left: -10px;">Adarsh Deshmukh</h3>
+                </div>
+                <figcaption>
+                  <blockquote>
+                    <h3>The Impact Student Council had played a pivotal role in my growth as a leader and in the success of the Adventure Club. Their continuous support and guidance have enabled us to explore new challenges, achieve remarkable milestones, and create unforgettable experiences for our members.</h3>
+                </blockquote>
+                </figcaption>
+              </figure>
+        </div>
+        <div class="card">
+            <figure class="snip1390">
+                <div class="img_test">
+                <img src="../images/extra/sanika_kotgire.jpg" class="profile" />
+                <br>
+                <h3 style="color: white;">Sanika Kotgire</h3>
+                </div>
+                <figcaption>
+                  <blockquote>
+                    <h3>The Impact Student Council is vital for the Microsoft Learn Student Club, securing event permissions, allocating resources, and providing extensive media coverage. Their media team documents and shares our events on social media, boosting our online presence. They also offer financial support, skill development workshops, and recognition, promoting our club and attracting more students. Their support ensures we have the resources and visibility for enriching experiences, larger events, expert speakers, and valuable learning opportunities.</h3>
+                  </blockquote>
+                </figcaption>
+              </figure>
+        </div>
+        <div class="card">
+            <figure class="snip1390">
+                <div class="img_test">
+                <img src="../images/extra/sagnik_nayak.jpg" class="profile" />
+                <br>
+                <h3 style="color: white;">Sagnik Nayak</h3>
+                </div>
+                <figcaption>
+                  <blockquote>
+                    <h3 style="text-align: justify;">The Impact Student Council has significantly boosted the CodeChef MITSOC Chapter Club by facilitating event permissions, resource allocation, and extensive media coverage. Their diligent media team has enabled us to share content on social platforms, promoting our club across the university. They also provide financial support, skill development, and recognition, ensuring a successful experience for all members.</h3>
+                  </blockquote>
+                </figcaption>
+              </figure>
+        </div>
+        <div class="card">
+            <figure class="snip1390">
+                <div class="img_test">
+                <img src="../images/extra/bhoumik_rajput.jpg" class="profile" />
+                <br>
+                <h3 style="color: white;">Bhoumik Rajput</h3>
+                </div>
+                <figcaption>
+                    <blockquote>
+                    <h3>As the Sports Coordinator, the support from the Impact Student Council has been essential in executing my responsibilities and organizing our sports meet, VSM. Their guidance, resources, and encouragement have empowered me to overcome challenges and ensure the event's success, making it an unforgettable experience for everyone involved.</h3>
+                  </blockquote>
+                </figcaption>
+              </figure>
+        </div>
+        <button class="button_test" id="swapButton">></button>
+    </div>
+    <div class="stats">
+        <div class="stats_img">
+            <img src="../images/timeline_photos/sep_4_1.png" class="stats_image reveal3">
+        </div>
+        <div class="stats_content">
+            <h2><span>Unleash</span> Your Leadership Potential with <span>Council Connect</span></h2>
+            <h3 style="margin-top: 20px;">Setup and lead your peers through engaging activities and resourceful services</h3>
+            <div class="stats_val">
+                <div>
+                    <h2 data-target="13000">0+</h2>
+                    <h3>Students Community</h3>
+                </div>
+                <div>
+                    <h2 data-target="40">0+</h2>
+                    <h3>Clubs</h3>
+                </div>
+                <div>
+                    <h2 data-target="365">0+</h2>
+                    <h3>Events Organized</h3>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="widget ContactForm" id="ContactForm22" style="margin-bottom: 20px;">
+        <div class="contact-form-widget">
+            <h2 class="ribbon">
+                <strong class="ribbon-content" style="font-family: Palatino Linotype, Book Antiqua, Palatino, serif; font-size: 20px;">Subscribe to our Newsletter</strong>
+            </h2>
+            <div class="form">
+                <form name="submit-to-google-sheet">
+                  <div class="form-row">
+                    <div class="contactf-name">
+                      Enter Full Name*:
+                      <input class="contact-form-name" id="ContactForm1_contact-form-name" name="Full Name" size="30"
+                      type="text" placeholder="Enter your full name" required />
+                    </div>
+                    <div class="contactf-college">
+                      Enter LinkedIn Info*:
+                      <input class="contact-form-college" id="ContactForm1_contact-form-college" name="LinkedIn Info" size="30"
+                        type="text" placeholder="Enter your LinkedIn Info" required />
+                    </div>
+                  </div>
+                  <div class="form-row">
+                    <div class="contactf-email">
+                      Enter E-mail address *:
+                      <input class="contact-form-email" id="ContactForm1_contact-form-email" name="E-mail address" size="30"
+                        type="email" placeholder="Enter your email address" required />
+                    </div>
+                    <div class="contactf-phn">
+                      Enter Phone number *:
+                      <input class="contact-form-phn" id="ContactForm1_contact-form-phone" name="Phone Number" size="30"
+                      type="tel" placeholder="Enter your phone number" required />
+                    </div>
+                  </div>
+                  <div class="contact_button" style="margin-top: 30px;">
+                    <button class="contact-button2 contact-button-contact2" style="position: relative;" type="submit">Submit</button>
+                    
+                </div>
+                  <p id="message"></p>
+                </form>
+              </div>
+              
+              <script>
+                const scriptURL = 'https://script.google.com/macros/s/AKfycbxiwp-TS4LmJIgEyixV6RpzG_70rednCM9XjblgHeWj8Izh5ZXvumdhzH8AiXtW9zkI/exec'; // Replace with your Web App URL
+                const form = document.forms['submit-to-google-sheet'];
+              
+                form.addEventListener('submit', e => {
+                  e.preventDefault();
+                  const messageElement = document.getElementById('message');
+                  fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+                    .then(response => response.json())
+                    .then(response => {
+                      if (response.result === 'success') {
+                        messageElement.textContent = 'Form submitted successfully!';
+                        messageElement.className = 'response-message success';
+                        messageElement.style.display = 'block'; // Show the message
+                        form.reset(); // Reset the form
+                    } else {
+                        messageElement.textContent = 'There was an error submitting the form!';
+                        messageElement.className = 'response-message error';
+                        messageElement.style.display = 'block'; // Show the message
+                      }
+                    })
+                    .catch(error => {
+                      console.error('Error!', error.message);
+                      messageElement.textContent = 'There was an error submitting the form!';
+                      messageElement.className = 'response-message error';
+                      messageElement.style.display = 'block'; // Show the message
+                    });
+                });
+              </script>
+              
+            
+        </div>
+    </div>
+    <footer class="footer" id="footer">
+        <div class="widget_endpage" id="endpage">
+            <div class="endpage-widget">
+                Council Connect
+                <h4 style="color: white;">Connecting students through leadership and service</h4>
+                <div class="links">
+                    <a href="https://www.instagram.com/impactmitadt" target="_blank"><i
+                            class="fab fa-instagram w3-hover-opacity"></i></a>
+                    <a href="https://x.com/mitadtpune" target="_blank"><i class="fab fa-twitter w3-hover-opacity"></i></a>
+                    <a href="https://www.facebook.com/mitadtuniversity" target="_blank"><i class="fab fa-facebook w3-hover-opacity"></i></a>
+                    <a href="https://www.linkedin.com/in/surajbhoyar/" target="_blank"><i class="fab fa-linkedin w3-hover-opacity"></i></a>
+                </div>
+            </div>
+            <div class="container">
+                <div class="foot_nav">
+                    <input class="foot_nav foot_nav-home" id="home" type="button" value="Home" onclick="location.href='index.html'"/>
+                    <input class="foot_nav foot_nav-act" id="act" type="button" value="Events" onclick="location.href='events.html'"/>
+                </div>
+                <div class="foot_nav1">
+                    <input class="foot_nav foot_nav-rev" id="rev" type="button" value="Clubs" onclick="location.href='clubs.html'"/>
+                    <input class="foot_nav1 foot_nav1-privacy" id="Privacy" type="button" value="Privacy policy" onclick="location.href='#'"/>
+                </div>
+                
+            </div>
+            <div class="footer_btn">
+                <button class="footer_button" style="background-color: #4CAF50;" onclick="window.open('https://chat.whatsapp.com/LSei1YqL5N5L8BGSA5Cglw', '_blank')">
+                  <i class="fab fa-whatsapp w3-hover-opacity"></i><p>Whatsapp</p>
+                </button>
+                <button class="footer_button" style="background-color: #0088cc;" onclick="window.open('https://t.me/StudentSuccess_MITADTU', '_blank')">
+                  <i class="fab fa-telegram w3-hover-opacity"></i><p>Telegram</p>
+                </button>
+            </div>
+        </div>
+        <div style="color: white; justify-content: center;">Copyright © 2025 All Rights Reserved by MIT University.</div>
+    </footer>
+    <script>
+
+    window.addEventListener('scroll', reveal);
+        function reveal() {
+            var reveals = document.querySelectorAll('.reveal');
+            for (var i = 0; i < reveals.length; i++) {
+                var windowheight = window.innerHeight;
+                var revealtop = reveals[i].getBoundingClientRect().top;
+                var revealpoint = 10;
+                
+                if (revealtop < windowheight - revealpoint) {
+                    reveals[i].classList.add('active');
+                }
+                else {
+                    reveals[i].classList.remove('active');
+                }
+            }
+        }
+
+        let swapButton = document.getElementById("swapButton");
+        swapButton.addEventListener("click", swap);
+        function swap() {
+            let stack = document.querySelector(".stack");
+            let cards = stack.querySelectorAll(".card");
+            
+            if (cards.length > 0) {
+                let card = cards[cards.length - 1];
+
+                card.style.animation = "swap 700ms forwards";
+
+                setTimeout(() => {
+                    card.style.animation = "";
+
+                    stack.prepend(card);
+                }, 700);
+            }
+        }
+
+        function counting(element, targetNumber) {
+            const duration = 5000;
+            const frameRate = 60;
+            let currentNumber = 0;
+            const increment = targetNumber / (duration / (1000 / frameRate));
+
+            function updateCounter() {
+                currentNumber += increment;
+                if (currentNumber < targetNumber) {
+                    element.textContent = Math.ceil(currentNumber) + '+';
+                    requestAnimationFrame(updateCounter);
+                } else {
+                    element.textContent = targetNumber + '+';
+                }
+            }
+            
+            updateCounter();
+        }
+
+        function initCounting() {
+            var reveals = document.querySelectorAll('.reveal3');
+            for (var i = 0; i < reveals.length; i++) {
+                (function (i) {
+                    var windowheight = window.innerHeight;
+                    var revealtop = reveals[i].getBoundingClientRect().top;
+                    var revealpoint = 50;
+
+                    if (revealtop < windowheight - revealpoint) {
+                        setTimeout(function () {
+                            reveals[i].classList.add('active');
+                        }, i * 1000);
+                    }
+                    else {
+                        reveals[i].classList.remove('active');
+                    }
+                })(i);
+            }
+
+
+            const statsDiv = document.querySelector('.stats_val');
+            if (statsDiv && isElementInViewport(statsDiv)) {
+                const counters = statsDiv.querySelectorAll('h2[data-target]');
+                counters.forEach(counter => {
+                    const targetNumber = parseInt(counter.getAttribute('data-target'));
+                    counting(counter, targetNumber);
+                });
+                window.removeEventListener('scroll', initCounting);
+            }
+        }
+
+        function isElementInViewport(el) {
+            const rect = el.getBoundingClientRect();
+            return (
+                rect.top >= 0 &&
+                rect.left >= 0 &&
+                rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+                rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+            );
+        }
+
+        window.addEventListener('scroll', initCounting);
+        
+
+        let circle = document.querySelector('.circle');
+        let slider = document.querySelector('.slider');
+        let list = document.querySelector('.list');
+        let prev = document.getElementById('prev');
+        let next = document.getElementById('next');
+        let items = document.querySelectorAll('.list .item');
+        let count = items.length;
+        let active = 1;
+        let leftTransform = 0;
+        let width_item = items[active].offsetWidth * 1.2;
+        let interval = 4000;
+
+        next.onclick = () => {
+            active = active >= count - 1 ? 0 : active + 1;
+            runCarousel();
+        }
+
+        prev.onclick = () => {
+            active = active <= 0 ? count - 1 : active - 1;
+            runCarousel();
+        }
+
+        function runCarousel() {
+            prev.style.display = (active == 0) ? 'none' : 'block';
+            next.style.display = (active == count - 1) ? 'none' : 'block';
+
+            let old_active = document.querySelector('.item.active');
+            if (old_active) old_active.classList.remove('active');
+            items[active].classList.add('active');
+            
+            leftTransform = width_item * (active - 1) * -1;
+            list.style.transform = `translateX(${leftTransform}px)`;
+        }
+        
+        let slideshowInterval = setInterval(() => {
+            next.click();
+        }, interval);
+        runCarousel();
+    </script>
+<script src="carousal.js"></script>
+</body>
+
+</html>

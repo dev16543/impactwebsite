@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scroll to Div</title>
+    <style>
+        body {
+            height: 2000px; /* Just to have enough content to scroll */
+            font-family: Arial, sans-serif;
+        }
+        .stats_val {
+            margin-top: 1000px;
+            padding: 20px;
+            background-color: lightblue;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="stats_val">
+        <div>
+            <h2 data-target="13000">0+</h2>
+            <h3>Students Community</h3>
+        </div>
+        <div>
+            <h2 data-target="35">0+</h2>
+            <h3>Clubs</h3>
+        </div>
+        <div>
+            <h2 data-target="100">0+</h2>
+            <h3>Events Organized</h3>
+        </div>
+    </div>
+
+    <script>
+        function counting(element, targetNumber) {
+            const duration = 5000; // duration in milliseconds
+            const frameRate = 60; // 60 frames per second
+            let currentNumber = 0;
+            const increment = targetNumber / (duration / (1000 / frameRate));
+
+            function updateCounter() {
+                currentNumber += increment;
+                if (currentNumber < targetNumber) {
+                    element.textContent = Math.ceil(currentNumber) + '+';
+                    requestAnimationFrame(updateCounter);
+                } else {
+                    element.textContent = targetNumber + '+';
+                }
+            }
+
+            updateCounter();
+        }
+
+        function isElementInViewport(el) {
+            const rect = el.getBoundingClientRect();
+            return (
+                rect.top >= 0 &&
+                rect.left >= 0 &&
+                rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+                rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+            );
+        }
+
+        function onScroll() {
+            const statsDiv = document.querySelector('.stats_val');
+            if (isElementInViewport(statsDiv)) {
+                const counters = statsDiv.querySelectorAll('h2');
+                counters.forEach(counter => {
+                    const targetNumber = parseInt(counter.getAttribute('data-target'));
+                    counting(counter, targetNumber);
+                });
+
+                window.removeEventListener('scroll', onScroll); // Remove the scroll event listener once counters are triggered
+            }
+        }
+
+        window.addEventListener('scroll', onScroll);
+    </script>
+
+</body>
+</html>

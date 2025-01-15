@@ -1,0 +1,1411 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Impact Student Council</title>
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .container_club {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 24px;
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+      gap: 24px;
+    }
+
+    @media (min-width: 768px) and (max-width: 1024px){
+      .c_cover_img{
+        height: 180px !important;
+        width: 280px !important;
+      }
+
+      .c_page_cover .c_cover_content h2{
+        font-size: 28px !important;
+      }
+
+      .c_page_cover .c_cover_content h3{
+        font-size: 15px !important;
+      }
+
+      .container_club {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .container_club {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+
+
+    .c_page_cover {
+      background: linear-gradient(to left, #0077B6, #003366);
+      width: 100%;
+      height: 540px;
+      display: flex;
+      justify-content: space-between;
+      padding: 50px 50px 50px 50px;
+    }
+
+    .c_cover_content {
+      width: 50%;
+      padding-top: 50px;
+      padding-left: 50px;
+    }
+
+    .c_cover_photo {
+      width: 50%;
+      padding: 30px 50px 50px 50px;
+    }
+
+    .c_cover_img {
+      height: 400px;
+      width: 570px;
+      border-radius: 40px;
+    }
+
+    @media(max-width:1024px){
+      .c_page_cover{
+        height: 240px;
+        padding: 10px;
+      }
+
+      .c_cover_content{
+        width: 60%;
+        padding: 10px;
+        text-align: justify;
+      }
+
+      .c_cover_content h2{
+        font-size: 20px !important;
+        margin-bottom: 10px !important;
+      }
+
+      .c_cover_content h3{
+        font-size: 10px;
+        font-weight: 300;
+      }
+
+      .c_cover_photo{
+        width: 40%;
+        padding: 10px;
+      }
+
+      .c_cover_img{
+          margin-top: 30px;
+          width: 110%;
+          height: auto;
+          border-radius: 10px;
+      }
+    }
+
+    .card_club {
+      position: relative;
+      background-color: #ffffff;
+      padding: 24px;
+      border-radius: 12px;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card_club::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 0%;
+      background: linear-gradient(to bottom, #0077B6, #003366);
+      transition: height 1s ease;
+      z-index: 0;
+    }
+
+    .card_club:hover::before {
+      height: 100%;
+    }
+
+    .card_club:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    }
+
+    .card_club * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .card_club img {
+      width: 90px;
+      height: 90px;
+      margin-bottom: 16px;
+      border-radius: 50%;
+    }
+
+    .card_club h2 {
+      font-size: 1.75rem;
+      margin-bottom: 8px;
+      /* Initial text color */
+      text-align: center;
+      color: #003366;
+    }
+
+    .card_club:hover h2{
+      color: white;
+    }
+
+    .card_club p {
+      margin-bottom: 16px;
+      text-align: justify;
+      color: #333;
+      font-family: "Roboto", Arial, sans-serif;
+      font-size: 16px;
+      font-weight: 400;
+      /* Initial text color */
+    }
+
+    .card_club .contact-info {
+      margin-top: 16px;
+      text-align: center;
+    }
+
+    .card_club .contact-info p {
+      margin: 4px 0;
+      color: #333;
+      /* Initial text color */
+    }
+
+    .card_club .contact-info p strong {
+      text-align: justify;
+      color: #003366;
+      font-family: "Roboto", Arial, sans-serif;
+      font-size: 18px;
+      font-weight: 500;
+    }
+
+    .card_club .btn-group {
+      display: flex;
+      justify-content: center;
+      margin-top: 16px;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .card_club:hover .btn-group {
+      opacity: 1;
+    }
+    .card_club:hover .contact-info p strong{
+      color: white;
+      font-weight: 500;
+    }
+    .card_club:hover p,
+    .card_club:hover .contact-info p {
+      font-weight: 400;
+      color: white;
+      /* Text color on hover */
+    }
+
+    .card_club button {
+      padding: 8px 16px;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+      background-color: #e3e6f3;
+      transition: background-color 0.3s;
+    }
+
+    .card_club button a {
+      text-decoration: none;
+      color: #003366;
+      font-weight: 600;
+    }
+
+    /* AOS animations */
+    [data-aos="zoom-in"] {
+      transform: scale(0.6);
+      opacity: 0;
+    }
+
+    [data-aos^="zoom"][data-aos^="zoom"] {
+      opacity: 0;
+      transition-property: opacity, transform;
+    }
+
+    body[data-aos-duration="400"] [data-aos] {
+      transition-duration: 0.4s;
+    }
+
+    body[data-aos-easing="ease-in-out-sine"] [data-aos] {
+      transition-timing-function: cubic-bezier(0.445, 0.05, 0.55, 0.95);
+    }
+
+    [data-aos^="zoom"][data-aos^="zoom"].aos-animate {
+      opacity: 1;
+      transform: translateZ(0) scale(1);
+    }
+  </style>
+</head>
+
+<body>
+  <div class="logo_head">
+    <ul>
+        <li><img src="../images/cover_images/OSA Logo (1) (1).png" class="logo"></li>
+        <li>
+            <div class="logo_text">
+            <h1 style="color: #004aad;">IMPACT</h1>
+            <h1 style="color: #004aad; margin-left: -30px;">Student Council</h1>
+            </div>
+        </li>
+        <li><img src="../images/cover_images/MIT ADTU New Logo 2024.jpg" class="logo"></li>
+    </ul>
+</div>
+<div class="nav_bar">
+  <div class="nav">
+      <div class="nav_hamburger">
+          <ul>
+              <li><a href="index.html">Home</a></li>
+              <li class="nav_dropdown">
+                  <a class="nav_dropbtn">Events</a>
+                  <div class="nav_dropdown-content">
+                      <a href="upcoming_events.html">Upcoming Events</a>
+                      <a href="events.html">Past Events</a>
+                  </div>
+              </li>
+              <li><a href="#footer">ContactUs</a></li>
+              <li class="nav_dropdown">
+                  <a class="nav_dropbtn"><i class="fal fa-solid fa-bars"></i></a>
+                  <div class="nav_dropdown-content-2">
+                      <a href="index.html">Home</a>
+                      <a href="upcoming_events.html">Upcoming Events</a>
+                      <a href="events.html">Past Events</a>
+                      <a href="our_team.html">Our Team</a>
+                      <a href="#" class="active">Clubs</a>
+                      <a href= "https://docs.google.com/spreadsheets/d/1NnWQGfw8_9DVxyk0lpHRqEKqK7dHKIXmljmCpdlS8WE/edit?usp=sharing"target="_blank">Event Calendar</a>
+                      <a href="../files/MIT_CODE_OF_CONDUCT.pdf" target="_blank">Code of Conduct</a>
+                      <a href="#footer">Contact Us</a>
+                      <a href="https://www.iviewd.com/mitadt/" target="_blank">Virtual Tour</a>
+                  </div>
+              </li>
+          </ul>
+      </div>
+      <div class="nav_content">
+      <ul>
+          <li><a href="index.html">Home</a></li>
+          <li class="nav_dropdown">
+              <a class="nav_dropbtn">Events</a>
+              <div class="nav_dropdown-content">
+                  <a href="upcoming_events.html">Upcoming Events</a>
+                  <a href="events.html">Past Events</a>
+              </div>
+          </li>
+          <li><a href="our_team.html">Our Team</a></li>
+          <li><a href="#" class="active">Clubs</a></li>
+          <li><a href= "https://docs.google.com/spreadsheets/d/1NnWQGfw8_9DVxyk0lpHRqEKqK7dHKIXmljmCpdlS8WE/edit?usp=sharing"target="_blank">Event Calendar</a></li>
+          <li><a href="news.html">News</a></li>
+          <li><a href="../files/MIT_CODE_OF_CONDUCT.pdf" target="_blank">Code of Conduct</a></li>
+          <li><a href="#footer">Contact Us</a></li>
+          <li><a href="https://www.iviewd.com/mitadt/" target="_blank">Virtual Tour</a></li>
+      </ul>
+      </div>
+  </div>
+</div>
+  <div class="c_page_cover">
+    <div class="c_cover_content">
+      <h2 style="color: #e3e6f3; margin-bottom: 50px;">Club Nexus: Where Interests
+        Ignite</h2>
+      <h3 style="color: #e3e6f3;">The IMPACT Student Council is proud to support a diverse range of clubs that cater to
+        the interests and passions of our student body. These clubs provide opportunities for students to explore new
+        hobbies, develop skills, and connect with like-minded peers. From academics to arts, sports to service, there's
+        something for everyone!</h3>
+
+    </div>
+    <div class="c_cover_photo">
+      <img src="../images/timeline_photos/feb_7_2.png" class="c_cover_img">
+    </div>
+  </div>
+  <div style="text-align: center; margin-top: 30px; margin-bottom: 30px;">
+    <h2>Our Esteemed Clubs</h2>
+  </div>
+  <div class="container_club">
+    <div class="card_club" data-aos="zoom-in">
+      <img src="../images/cover_images/logo.png" alt="club logo">
+      <h2>Cognisance</h2>
+      <p>Cognisance - where gaming passion meets camaraderie. This vibrant club ignites excitement and fosters a
+        sense of belonging among gamers of all levels. With a motto centred around embracing the thrill of
+        virtual adventure, Cognisance offers a diverse range of activities, from casual gaming sessions to
+        competitive tournaments. Encouraging friendly competition and teamwork, members are invited to push the
+        boundaries of their gaming prowess while forging lasting friendships.</p>
+      <div class="contact-info">
+        <p><strong>President:</strong> Tanishq Goyal</p>
+        <p><strong>Faculty Coordinator:</strong> Prof. Dr Ganesh Pathak</p>
+        <p>Prof. Dr. NP Kulkarni</p>
+        <p><strong>Contact:</strong> goyaltanishq99@gmail.com</p>
+      </div>
+      <div class="btn-group">
+        <button><a href="https://www.instagram.com/cognisance.mit/" target="_blank">Learn More</a></button>
+      </div>
+    </div>
+    <div class="card_club" data-aos="zoom-in">
+      <img src="../images/cover_images/logo.png" alt="club logo">
+      <h2>Cognisance</h2>
+      <p>Cognisance - where gaming passion meets camaraderie. This vibrant club ignites excitement and fosters a
+        sense of belonging among gamers of all levels. With a motto centred around embracing the thrill of
+        virtual adventure, Cognisance offers a diverse range of activities, from casual gaming sessions to
+        competitive tournaments. Encouraging friendly competition and teamwork, members are invited to push the
+        boundaries of their gaming prowess while forging lasting friendships.</p>
+      <div class="contact-info">
+        <p><strong>President:</strong> Tanishq Goyal</p>
+        <p><strong>Faculty Coordinator:</strong> Prof. Dr Ganesh Pathak</p>
+        <p>Prof. Dr. NP Kulkarni</p>
+        <p><strong>Contact:</strong> goyaltanishq99@gmail.com</p>
+      </div>
+      <div class="btn-group">
+        <button><a href="https://www.instagram.com/cognisance.mit/" target="_blank">Learn More</a></button>
+      </div>
+    </div>
+    <div class="card_club" data-aos="zoom-in">
+      <img src="../images/cover_images/logo.png" alt="club logo">
+      <h2>The Infusion Club</h2>
+      <p>The Infusion Club, where taste meets wellness in a harmonious blend of flavour and nourishment. This
+        visionary collective is dedicated to redefining taste through the art of infusion, prioritising health
+        and culinary innovation. With a focus on quality ingredients and mindful preparation, members embark on
+        a journey of taste exploration, savouring delightful concoctions meticulously crafted to invigorate both
+        body and soul. From refreshing herbal blends to invigorating fruit infusions, every sip is a celebration
+        of health, vitality, and culinary excellence</p>
+      <div class="contact-info">
+        <p><strong>President:</strong> Arya Paturkar</p>
+        <p><strong>Faculty Coordinator:</strong> Prof Yogita Chavan</p>
+        <p><strong>Contact:</strong> aryasameerp@gmail.com</p>
+      </div>
+      <div class="btn-group">
+        <button><a href="#" target="_blank">Learn More</a></button>
+      </div>
+    </div>
+    <div class="card_club" data-aos="zoom-in">
+      <img src="../images/cover_images/logo.png" alt="club logo">
+      <h2>SAE Collegiate Club</h2>
+      <p>We are the leading technical body for knowledge dissemination and skill development in mobility. As a
+        trusted think-tank, we advise policymakers on mobility-related matters. Our self-sustaining society
+        includes over 10% of mobility professionals as members. We are a professional organization dedicated to
+        creating value for the mobility engineering community.</p>
+      <div class="contact-info">
+        <p><strong>President:</strong> Maviya Tambe</p>
+        <p><strong>Faculty Coordinator:</strong> Dr. ANURAG NEMA</p>
+        <p><strong>Contact:</strong> tambemawiya120@gmail.com</p>
+      </div>
+      <div class="btn-group">
+        <button><a href="#" target="_blank">Learn More</a></button>
+      </div>
+    </div>
+    <div class="card_club" data-aos="zoom-in">
+      <img src="../images/cover_images/logo.png" alt="club logo">
+      <h2>MIT CBC (Cybersecurity and Blockchain Club)</h2>
+      <p>The MIT Cybersecurity and Blockchain Club (CBC) serves as a dynamic hub for students passionate about the
+        fusion of cybersecurity and blockchain technology. Committed to advancing knowledge and fostering
+        collaboration, the CBC empowers members through engaging events, workshops, and expert-led discussions.
+        With a focus on shaping a more secure and decentralized future, the club cultivates a vibrant community
+        dedicated to driving innovation and addressing pressing challenges in digital security.</p>
+      <div class="contact-info">
+        <p><strong>President:</strong> Anant Jain</p>
+        <p><strong>Faculty Coordinator:</strong> Prof. Hingoliwala Hyder Ali</p>
+        <p><strong>Contact:</strong> anantniteshjain@gmail.com</p>
+      </div>
+      <div class="btn-group">
+        <button><a href="#" target="_blank">Learn More</a></button>
+      </div>
+    </div>
+    <div class="card_club" data-aos="zoom-in">
+      <img src="../images/cover_images/logo.png" alt="club logo">
+      <h2>Between The Lines Book Club</h2>
+      <p>Between The Lines Book Club is a vibrant community fostering a love for literature and meaningful
+        discussions. With a curated selection of diverse works, members embark on enriching literary journeys
+        through engaging discussions and shared experiences. Committed to igniting intellectual curiosity, the
+        club promotes lifelong learning and the power of storytelling.</p>
+      <div class="contact-info">
+        <p><strong>President:</strong> Alisha Desai</p>
+        <p><strong>Faculty Coordinator:</strong> Prof Siddhi Lonkar</p>
+        <p><strong>Contact:</strong> alishadesai09@gmail.com</p>
+      </div>
+      <div class="btn-group">
+        <button><a href="#" target="_blank">Learn More</a></button>
+      </div>
+    </div>
+    <div class="card_club" data-aos="zoom-in">
+      <img src="../images/cover_images/logo.png" alt="club logo">
+      <h2>CINEMANIACS</h2>
+      <p>Capture moments and improve your photography skills through workshops, photo walks, and exhibitions.</p>
+      <div class="contact-info">
+        <p><strong>President:</strong> Ealeja Sunil Gaikwad</p>
+        <p><strong>Faculty Coordinator:</strong> Prof. Siddhi Lonkar</p>
+        <p><strong>Contact:</strong> ealejaealeja@gmail.com</p>
+      </div>
+      <div class="btn-group">
+        <button><a href="#" target="_blank">Learn More</a></button>
+      </div>
+    </div>
+    <div class="card_club" data-aos="zoom-in">
+      <img src="../images/cover_images/logo.png" alt="club logo">
+      <h2>MIT Electric Vehicle (EV) Club</h2>
+      <p>The MIT Electric Vehicle (EV) Club is dedicated to pioneering sustainable transportation solutions and
+        reducing carbon emissions. Through innovative technology and collaborative projects, they inspire a new
+        generation of environmental advocates.</p>
+      <div class="contact-info">
+        <p><strong>President:</strong> Kastur Raghunath Patil</p>
+        <p><strong>Faculty Coordinator:</strong> Prof Shashank Sharad Gawade</p>
+        <p><strong>Contact:</strong> kasturpatil9@gmail.com</p>
+      </div>
+      <div class="btn-group">
+        <button><a href="#" target="_blank">Learn More</a></button>
+      </div>
+    </div>
+    <div class="card_club" data-aos="zoom-in">
+      <img src="../images/cover_images/logo.png" alt="club logo">
+      <h2>IDEATE</h2>
+      <p>IDEATE is a pioneering force in the realm of UI/UX design, dedicated to redefining digital experiences
+        through innovation and user-centric principles. With a focus on fostering creativity and functionality,
+        IDEATE cultivates a vibrant community of designers, developers, and visionaries. Through collaborative
+        ideation sessions, workshops, and industry insights, IDEATE empowers individuals to craft immersive
+        digital experiences that captivate users. Committed to excellence, IDEATE envisions a future where every
+        interaction is intuitive and engaging, shaping the landscape of UI/UX design with cutting-edge
+        technologies.</p>
+      <div class="contact-info">
+        <p><strong>President:</strong> Sanskar Khedkar</p>
+        <p><strong>Faculty Coordinator:</strong> Prof. Dr. Ganesh Pathak</p>
+        <p><strong>Contact:</strong> sanskarkhedkar@gmail.com</p>
+      </div>
+      <div class="btn-group">
+        <button><a href="#" target="_blank">Learn More</a></button>
+      </div>
+    </div>
+    <div class="card_club" data-aos="zoom-in">
+      <img src="../images/cover_images/logo.png" alt="club logo">
+      <h2>Synapse.Ai
+      </h2>
+      <p>Welcome to Synapse AI, where innovation meets passion! With exceptional leadership, we're poised to achieve
+        groundbreaking advancements and milestones in the world of artificial intelligence. The enthusiasm for AI and
+        remarkable leadership qualities promise an exciting and transformative journey for our club. Join us in
+        celebrating this new chapter and be part of a vibrant community dedicated to pushing the boundaries of AI. Let's
+        create the future together! 🎊🚀</p>
+      <div class="contact-info">
+        <p><strong>President:</strong> Manas Auti </p>
+        <p><strong>Faculty Coordinator:</strong> Prof.Shahin Makubhai
+        </p>
+        <p><strong>Contact:</strong> manas.auti2909@gmai.com
+        </p>
+      </div>
+      <div class="btn-group">
+        <button><a href="#" target="_blank">Learn More</a></button>
+      </div>
+    </div>
+    <div class="card_club" data-aos="zoom-in">
+      <img src="../images/cover_images/logo.png" alt="club logo">
+      <h2>The Psychology Club
+      </h2>
+      <p>The Psychology Club is a vibrant community dedicated to promoting holistic wellness and resilience. Through
+        engaging events and workshops, they empower individuals to explore the interconnectedness of mind and body,
+        offering tools for managing stress, practicing self-care, and fostering mental fitness. With a vision focused on
+        achieving fulfillment through physical and mental well-being, the club invites all to join in their journey of
+        self-discovery and empowerment.
+      </p>
+      <div class="contact-info">
+        <p><strong>President:</strong> Mugdha Jadhav
+        </p>
+        <p><strong>Faculty Coordinator:</strong> Ms. Aiswarya Menon
+        </p>
+        <p><strong>Contact:</strong> jadhavmugdha6@gmail.com
+        </p>
+      </div>
+      <div class="btn-group">
+        <button><a href="#" target="_blank">Learn More</a></button>
+      </div>
+    </div>
+    <div class="card_club" data-aos="zoom-in">
+      <img src="../images/cover_images/logo.png" alt="club logo">
+      <h2>SPEEDTAIL RACING
+
+      </h2>
+      <p>"The Speedtail Racing Club is a vibrant community united by a passion for automotive innovation and societal
+        impact. With a focus on fostering competitiveness and sustainability, the club pushes boundaries in technology
+        while making positive contributions to society. Through hands-on projects and competitions, members develop
+        practical skills and strive for excellence. Emphasizing professional and personal growth, the club empowers
+        individuals to excel academically and contribute meaningfully to automotive innovation and beyond.</p>
+      <div class="contact-info">
+        <p><strong>President:</strong> Advait Tikam
+        </p>
+        <p><strong>Faculty Coordinator:</strong> Prof. Nishigandha Patel
+
+        </p>
+        <p><strong>Contact:</strong> tikamadvait369@gmail.com
+
+        </p>
+      </div>
+      <div class="btn-group">
+        <button><a href="#" target="_blank">Learn More</a></button>
+      </div>
+    </div>
+    <div class="card_club" data-aos="zoom-in">
+      <img src="../images/cover_images/logo.png" alt="club logo">
+      <h2>The Alpha Cell
+
+      </h2>
+      <p>
+      </p>
+      <div class="contact-info">
+        <p><strong>President:</strong> Chunar Bhate
+
+        </p>
+        <p><strong>Faculty Coordinator:</strong> Prof. Akshay Aghav
+
+        </p>
+        <p><strong>Contact:</strong> bhate.chunar@gmail.com
+
+        </p>
+      </div>
+      <div class="btn-group">
+        <button><a href="#" target="_blank">Learn More</a></button>
+      </div>
+    </div>
+    <div class="card_club" data-aos="zoom-in">
+      <img src="../images/cover_images/logo.png" alt="club logo">
+      <h2>IGNITE
+      </h2>
+      <p>IGNITE is a dynamic community dedicated to igniting the spark of creativity and innovation within its members.
+        With a clear mission to empower individuals to unleash their full potential, IGNITE offers a vibrant ecosystem
+        of ideas, resources, and mentorship. Through a variety of events, workshops, and projects, IGNITE cultivates a
+        culture of exploration, experimentation, and collaboration, encouraging members to push boundaries and make
+        their mark on the world.
+      </p>
+      <div class="contact-info">
+        <p><strong>President:</strong> Sonam Bhul
+        </p>
+        <p><strong>Faculty Coordinator:</strong> Prof. Ashvini Jadhav
+        </p>
+        <p><strong>Contact:</strong> sonam.bhule9696@gmail.com
+        </p>
+      </div>
+      <div class="btn-group">
+        <button><a href="#" target="_blank">Learn More</a></button>
+      </div>
+    </div>
+    <div class="card_club" data-aos="zoom-in">
+      <img src="../images/cover_images/logo.png" alt="club logo">
+      <h2>Yuvarth
+      </h2>
+      <p>
+      </p>
+      <div class="contact-info">
+        <p><strong>President:</strong> Varad Garje
+        </p>
+        <p><strong>Faculty Coordinator:</strong> Gurunath Waghale
+        </p>
+        <p><strong>Contact:</strong> varadgarje34@gmail.com
+        </p>
+      </div>
+      <div class="btn-group">
+        <button><a href="#" target="_blank">Learn More</a></button>
+      </div>
+    </div>
+    <div class="card_club" data-aos="zoom-in">
+      <img src="../images/cover_images/logo.png" alt="club logo">
+      <h2>GDSC
+      </h2>
+      <p>The Google Developers Student Community (GDSC) is a dynamic hub where students converge to explore technology
+        and drive positive change. With a focus on innovation and collaboration, GDSC empowers students to become
+        problem-solvers and changemakers. Through workshops, hackathons, and collaborative initiatives, GDSC fosters an
+        inclusive environment for continuous learning and growth
+      </p>
+      <div class="contact-info">
+        <p><strong>President:</strong> Akshat Vashisht
+        </p>
+        <p><strong>Faculty Coordinator:</strong> Prof. Rajkumar Patil
+        </p>
+        <p><strong>Contact:</strong> akashat2003@gmail.com
+        </p>
+      </div>
+      <div class="btn-group">
+        <button><a href="https://www.instagram.com/gdsc.mitadt/" target="_blank">Learn More</a></button>
+      </div>
+    </div>
+    <div class="card_club" data-aos="zoom-in">
+      <img src="../images/cover_images/logo.png" alt="club logo">
+      <h2>FOODPRENEURS CLUB
+      </h2>
+      <p>"The Foodpreneur's Club is a vibrant hub dedicated to fostering innovation in the food technology sector.
+        Committed to empowering aspiring foodpreneurs, the club provides essential tools, resources, and mentorship to
+        cultivate creative ideas into successful ventures. With a focus on taste, health, and sustainability, the club
+        hosts inspiring events, offers expert guidance, and fosters a supportive community to drive positive change in
+        the culinary landscape. Its mission is to be a catalyst for realizing foodpreneurs' dreams and ushering in a new
+        era of gastronomic excellence.
+      </p>
+      <div class="contact-info">
+        <p><strong>President:</strong> Arya Bothe
+        </p>
+        <p><strong>Faculty Coordinator:</strong> Dr. Sandip Gaikwad
+        </p>
+        <p><strong>Contact:</strong> aryabothe@gmail.com
+        </p>
+      </div>
+      <div class="btn-group">
+        <button><a href="#" target="_blank">Learn More</a></button>
+      </div>
+    </div>
+    <div class="card_club" data-aos="zoom-in">
+      <img src="../images/cover_images/logo.png" alt="club logo">
+      <h2>Cloud Computing Club
+      </h2>
+      <p>The Cloud Computing Club is a dynamic community fostering innovation in cloud technology. Dedicated to
+        nurturing talent, the club offers hands-on experience, collaborative projects, and industry insights. Through
+        workshops, seminars, and real-world applications, members gain essential skills for success in today's digital
+        world. With a vision to inspire future leaders in cloud computing, the club drives transformative change across
+        industries.
+      </p>
+      <div class="contact-info">
+        <p><strong>President:</strong> Mahati Kapuganty
+        </p>
+        <p><strong>Faculty Coordinator:</strong> Prof .Dr. Rajani Sajjan
+        </p>
+        <p><strong>Contact:</strong> mahatikapuganty@gmail.com
+      </div>
+      <div class="btn-group">
+        <button><a href="#" target="_blank">Learn More</a></button>
+      </div>
+    </div>
+    <div class="card_club" data-aos="zoom-in">
+      <img src="../images/cover_images/logo.png" alt="club logo">
+      <h2>MIT ADTU Adventure Club
+
+      </h2>
+      <p>"The MIT ADTU Adventure Club embarks on a journey to blend exhilaration with education, providing students with
+        thrilling experiences intertwined with valuable lessons. Committed to fostering personal and professional
+        growth, the club offers diverse activities aimed at inspiring curiosity and igniting a passion for adventure.
+        With a dedicated team of adventurers and mentors, they cultivate camaraderie, resilience, and a thirst for
+        lifelong learning. Whether scaling mountain peaks or navigating untamed wilderness, members embark on
+        transformative journeys, leaving indelible memories in their wake.
+      </p>
+      <div class="contact-info">
+        <p><strong>President:</strong> Tushar Kumar Tailor
+        </p>
+        <p><strong>Faculty Coordinator:</strong> Prof Anandrao Jadhav
+        </p>
+        <p><strong>Contact:</strong> tusharkumartailor@gmail.com
+        </p>
+      </div>
+      <div class="btn-group">
+        <button><a href="#" target="_blank">Learn More</a></button>
+      </div>
+    </div>
+    <div class="card_club" data-aos="zoom-in">
+      <img src="../images/cover_images/logo.png" alt="club logo">
+      <h2>MIT Swift Coding Club
+
+      </h2>
+      <p>The MIT Swift Coding Club is a dynamic community dedicated to empowering students with essential coding skills
+        and fostering a passion for innovation through the Swift programming language. Committed to driving creativity
+        and excellence, the club offers workshops, hackathons, and coding challenges to challenge and inspire budding
+        developers. With a vision of coding as a key to limitless opportunities, the club aims to empower individuals to
+        explore boundless creativity and innovation, envisioning a future where coding is an essential component of the
+        global workforce.
+      </p>
+      <div class="contact-info">
+        <p><strong>President:</strong> Kashish Shah</p>
+        <p><strong>Faculty Coordinator:</strong> Prof.Reetika Kerketta</p>
+        <p><strong>Contact:</strong> kashishshah.in@gmail.com</p>
+      </div>
+      <div class="btn-group">
+        <button><a href="#" target="_blank">Learn More</a></button>
+      </div>
+    </div>
+    <div class="card_club" data-aos="zoom-in">
+      <img src="../images/cover_images/logo.png" alt="club logo">
+      <h2>IEEE Student Branch MIT-ADT
+      </h2>
+      <p>The IEEE Student Branch at MIT-ADT is a dynamic community driven by a passion for technology and innovation.
+        Committed to advancing knowledge and fostering collaboration, the branch offers diverse opportunities for
+        aspiring engineers and technologists. Through cutting-edge events, workshops, and competitions, members explore
+        the forefront of technology, engage in hands-on projects, and connect with industry leaders. With a focus on
+        inclusivity and community, the IEEE Student Branch at MIT-ADT empowers students to push boundaries and shape the
+        future through innovation and technology.
+      </p>
+      <div class="contact-info">
+        <p><strong>President:</strong> Samarth A. Dongare
+        </p>
+        <p><strong>Faculty Coordinator:</strong> Prof. Dr. Reena Pagare
+        </p>
+        <p><strong>Contact:</strong> sadongare7@gmail.com
+        </p>
+      </div>
+      <div class="btn-group">
+        <button><a href="#" target="_blank">Learn More</a></button>
+      </div>
+    </div>
+    <div class="card_club" data-aos="zoom-in">
+      <img src="../images/cover_images/logo.png" alt="club logo">
+      <h2>Geeks For Geeks Student Chapter
+      </h2>
+      <p>The Geeks For Geeks Student Chapter is a dynamic community dedicated to fostering collaboration and innovation
+        in technology and computer science. With a focus on empowering aspiring programmers and tech enthusiasts, the
+        chapter provides a vibrant platform for exploration in coding, problem-solving, and software development.
+        Through engaging workshops, hackathons, and guest lectures, the chapter cultivates a culture of continuous
+        learning and skill enhancement, equipping students with the latest tools, resources, and industry insights.
+        Driven by a shared passion for innovation and intellectual curiosity, it serves as a catalyst for personal and
+        professional growth, inspiring the next generation of tech leaders to think creatively.
+      </p>
+      <div class="contact-info">
+        <p><strong>President:</strong> Kunal Taware
+        </p>
+        <p><strong>Faculty Coordinator:</strong> Prof. Anuja Chincholkar
+        </p>
+        <p><strong>Contact:</strong> kunaltaware210@gmail.com
+        </p>
+      </div>
+      <div class="btn-group">
+        <button><a href="#" target="_blank">Learn More</a></button>
+      </div>
+    </div>
+    <div class="card_club" data-aos="zoom-in">
+      <img src="../images/cover_images/logo.png" alt="club logo">
+      <h2>Institution's Innovation Council (IIC)
+      </h2>
+      <p>The Institution's Innovation Council (IIC) is a dynamic platform dedicated to fostering a culture of innovation
+        and entrepreneurship within the institution. With a commitment to nurturing creativity at all levels, the IIC
+        provides a diverse array of programs and workshops aimed at empowering individuals to transform their ideas into
+        practical solutions. Encouraging interdisciplinary collaboration and knowledge-sharing, the council cultivates
+        an environment where groundbreaking ideas can thrive. Through its continuous efforts to inspire, support, and
+        celebrate innovation, the IIC creates a vibrant ecosystem where individuals can make a meaningful impact with
+        their innovative ideas.
+      </p>
+      <div class="contact-info">
+        <p><strong>President:</strong> Atharva Nimbalkar
+        </p>
+        <p><strong>Faculty Coordinator:</strong> Prof. Moushmee Kuri Reena Dalvi
+        </p>
+        <p><strong>Contact:</strong> atharvanimbalkar36@gmail.com
+        </p>
+      </div>
+      <div class="btn-group">
+        <button><a href="#" target="_blank">Learn More</a></button>
+      </div>
+    </div>
+    <div class="card_club" data-aos="zoom-in">
+      <img src="../images/cover_images/logo.png" alt="club logo">
+      <h2>ACES MITSOE
+      </h2>
+      <p>ACES MITSOE, a dynamic academic community, prioritizes student happiness and holistic development. With a focus
+        on enhancing the student happiness index, it spearheads transformative change through innovative curricular and
+        co-curricular initiatives. Committed to nurturing well-being and empowerment, ACES MITSOE fosters a sense of
+        purpose and belonging through progressive programs and policies.
+      </p>
+      <div class="contact-info">
+        <p><strong>President:</strong> Gurbani Gambhir
+        </p>
+        <p><strong>Faculty Coordinator:</strong> Prof. Rahul Sonkamble
+        </p>
+        <p><strong>Contact:</strong> gurbanigambhir23023@gmail.com
+        </p>
+      </div>
+      <div class="btn-group">
+        <button><a href="#" target="_blank">Learn More</a></button>
+      </div>
+    </div>
+    <div class="card_club" data-aos="zoom-in">
+      <img src="../images/cover_images/logo.png" alt="club logo">
+      <h2>LEAP OF GRACE
+      </h2>
+      <p>Welcome to LEAP OF GRACE Dance Club, where movement knows no bounds and creativity flourishes. With a
+        dedication to excellence and inclusivity, this vibrant community provides a platform for dancers of all levels
+        to express themselves freely and explore the artistry of movement. Through electrifying performances, immersive
+        workshops, and collaborative projects, members embark on a journey of self-discovery and growth, guided by
+        experienced mentors and surrounded by like-minded enthusiasts. Join us in embracing the joy of dance and
+        unleashing your passion for artistic expression.
+      </p>
+      <div class="contact-info">
+        <p><strong>President:</strong> Aditi Bhattacharya
+        </p>
+        <p><strong>Faculty Coordinator:</strong> Prof. Reshma Giri Gosavi
+        </p>
+        <p><strong>Contact:</strong> bhattacharyaaditi4all@gmail.com
+        </p>
+      </div>
+      <div class="btn-group">
+        <button><a href="https://www.instagram.com/leap_of_grace/" target="_blank">Learn More</a></button>
+      </div>
+    </div>
+    <div class="card_club" data-aos="zoom-in">
+      <img src="../images/cover_images/logo.png" alt="club logo">
+      <h2>Codechef
+      </h2>
+      <p>"Codechef, a prominent platform in competitive programming, is dedicated to fostering innovation and excellence
+        among coding enthusiasts worldwide. With a focus on igniting passion and honing skills, Codechef offers a
+        dynamic space for individuals to push the boundaries of their coding capabilities. Through a variety of
+        contests, challenges, and learning resources, the club aims to nurture talent and promote technical proficiency,
+        empowering aspiring coders to thrive in today's digital landscape. Embracing collaboration, creativity, and
+        continuous improvement, Codechef inspires individuals to embark on transformative journeys of coding excellence.
+      </p>
+      <div class="contact-info">
+        <p><strong>President:</strong> Sagnik Nayak
+        </p>
+        <p><strong>Faculty Coordinator:</strong> Prof. Chaitanya Garware
+
+        </p>
+        <p><strong>Contact:</strong> sagniknayak128@gmail.com
+        </p>
+      </div>
+      <div class="btn-group">
+        <button><a href="#" target="_blank">Learn More</a></button>
+      </div>
+    </div>
+    <div class="card_club" data-aos="zoom-in">
+      <img src="../images/cover_images/logo.png" alt="club logo">
+      <h2>HERITAGE YATRA
+      </h2>
+      <p>The Heritage Club stands as a bastion of cultural preservation and celebration within the community. With a
+        resolute dedication to honoring collective history and natural heritage, the club's motto is rooted in fostering
+        pride and connection to our roots. Through diverse educational initiatives, community outreach, and preservation
+        efforts, it ensures the cherished treasures of our heritage endure for generations.
+      </p>
+      <div class="contact-info">
+        <p><strong>President:</strong> Vaishnavi Khodaskar
+        </p>
+        <p><strong>Faculty Coordinator:</strong> Ar. Ketaki Patwardhan
+        </p>
+        <p><strong>Contact:</strong> vaishnavikhodaskar@gmail.com
+        </p>
+      </div>
+      <div class="btn-group">
+        <button><a href="#" target="_blank">Learn More</a></button>
+      </div>
+    </div>
+    <div class="card_club" data-aos="zoom-in">
+      <img src="../images/cover_images/logo.png" alt="club logo">
+      <h2>Laggar falcon Aero club
+      </h2>
+      <p>LFAC (MIT's Aerospace Club) has consistently organized a spectrum of engaging events. From Interactive Seminars
+        and Workshops to Podcasts and Technical Competitions, LFAC offers a diverse platform for enthusiasts to delve
+        into UAV, Rocketry, and Astronomy. With a mission to foster innovation and idea acceleration within MIT's
+        aerospace domain, LFAC aims to cultivate a community of passionate learners, dedicated to sharing and exchanging
+        knowledge and experiences.
+      </p>
+      <div class="contact-info">
+        <p><strong>President:</strong> Pranav Jadhav
+        </p>
+        <p><strong>Faculty Coordinator:</strong> Prof. Krishna Jadhav
+        </p>
+        <p><strong>Contact:</strong> pranavjadhav942@gmail.com
+        </p>
+      </div>
+      <div class="btn-group">
+        <button><a href="#" target="_blank">Learn More</a></button>
+      </div>
+    </div>
+    <div class="card_club" data-aos="zoom-in">
+      <img src="../images/cover_images/logo.png" alt="club logo">
+      <h2>Photography Club
+      </h2>
+      <p>The Photography Club is a dynamic community of photography enthusiasts dedicated to fostering creativity and
+        appreciation for the art of visual storytelling. Through workshops, photo walks, and hands-on sessions, members
+        explore technical skills and unleash their artistic vision. With a focus on collaboration and learning, the club
+        invites all skill levels to join in capturing life's beauty through the lens of imagination.
+      </p>
+      <div class="contact-info">
+        <p><strong>President:</strong> Saurav Sharma
+        </p>
+        <p><strong>Faculty Coordinator:</strong> Prof. Tushar Panke
+        </p>
+        <p><strong>Contact:</strong> sauravkumarsingh1399@gmail.com
+        </p>
+      </div>
+      <div class="btn-group">
+        <button><a href="#" target="_blank">Learn More</a></button>
+      </div>
+    </div>
+    <div class="card_club" data-aos="zoom-in">
+      <img src="../images/cover_images/logo.png" alt="club logo">
+      <h2>Painting Club
+      </h2>
+      <p>Step into the world of artistry with the Painting Club, where artists of all levels unite in a supportive
+        atmosphere to hone their skills and unleash their creativity. With a commitment to kindling passion and
+        fostering talent, this vibrant community hosts exhibitions, workshops, and collaborative endeavors, empowering
+        members to explore their imagination with confidence. Join the Painting Club and embark on a journey of artistic
+        discovery and expression.
+      </p>
+      <div class="contact-info">
+        <p><strong>President:</strong> Sourish Jape
+        </p>
+        <p><strong>Faculty Coordinator:</strong> Prof. Shilkumar Kumbhar
+        </p>
+        <p><strong>Contact:</strong> japesourish@gmail.com
+        </p>
+      </div>
+      <div class="btn-group">
+        <button><a href="#" target="_blank">Learn More</a></button>
+      </div>
+    </div>
+    <div class="card_club" data-aos="zoom-in">
+      <img src="../images/cover_images/logo.png" alt="club logo">
+      <h2>Ted-X
+      </h2>
+      <p>TEDx clubs are local hubs of innovation and inspiration, driven by the motto "Ideas Worth Spreading." These
+        clubs host self-organized events featuring diverse speakers who share innovative ideas, insights, and stories.
+        Through dynamic and interactive presentations, TEDx clubs foster meaningful dialogue and connections within
+        communities, sparking inspiration and driving positive change.
+      </p>
+      <div class="contact-info">
+        <p><strong>President:</strong> Palkesh Laddha
+        </p>
+        <p><strong>Faculty Coordinator:</strong> Prof.Moushmee Kuri
+        </p>
+        <p><strong>Contact:</strong> laddhapalkesh@gmail.com
+        </p>
+      </div>
+      <div class="btn-group">
+        <button><a href="#" target="_blank">Learn More</a></button>
+      </div>
+    </div>
+    <div class="card_club" data-aos="zoom-in">
+      <img src="../images/cover_images/logo.png" alt="club logo">
+      <h2>Bikers Community
+      </h2>
+      <p>The Bikers Community is a tight-knit group of riders bound by their love for the open road and the thrill of
+        adventure. With a motto of "Freedom, Adventure, Camaraderie," they provide a platform for enthusiasts to
+        connect, share stories, and embark on unforgettable journeys together. From scenic cruises to tackling
+        challenging routes, members find solace and excitement in the freedom of the ride
+      </p>
+      <div class="contact-info">
+        <p><strong>President:</strong> Krishna Bhavsar
+        </p>
+        <p><strong>Faculty Coordinator:</strong> Dr.Swpanil Shirsath, Prof.Dr.Suraj Bhoyar
+        </p>
+        <p><strong>Contact:</strong> bhavsark009@gmail.com
+        </p>
+      </div>
+      <div class="btn-group">
+        <button><a href="#" target="_blank">Learn More</a></button>
+      </div>
+    </div>
+    <div class="card_club" data-aos="zoom-in">
+      <img src="../images/cover_images/logo.png" alt="club logo">
+      <h2>Shivraya Dhol Tasha Pathak
+      </h2>
+      <p>"Immersed in the vibrant tapestry of Maharashtra's cultural heritage, the Shivraya Dhol Tasha Pathak stands as
+        a beacon of tradition and rhythm. With resounding beats that echo through the ages, this illustrious ensemble
+        embodies the essence of Maharashtra's rich cultural tapestry.
+
+        Dedicated to preserving and promoting the cultural legacy of Maharashtra, the Shivraya Dhol Tasha Pathak
+        captivates audiences with its mesmerizing performances. Infused with passion and pride, each beat of the dhol
+        resonates with the spirit of Maharashtra, evoking a sense of unity and celebration.
+
+        As torchbearers of tradition, the Shivraya Dhol Tasha Pathak showcases the dynamic fusion of music, dance, and
+        folklore that defines Maharashtra's cultural identity. With each performance, they ignite a sense of pride and
+        nostalgia, weaving together the threads of tradition and modernity to create an unforgettable tapestry of sound
+        and spectacle.
+
+      </p>
+      <div class="contact-info">
+        <p><strong>President:</strong> Sharvil Maind
+        </p>
+        <p><strong>Faculty Coordinator:</strong> Prof.Dr.Suraj Bhoyar
+        </p>
+        <p><strong>Contact:</strong> sharvil27maind@gmail.com
+        </p>
+      </div>
+      <div class="btn-group">
+        <button><a href="#" target="_blank">Learn More</a></button>
+      </div>
+    </div>
+    <div class="card_club" data-aos="zoom-in">
+      <img src="../images/cover_images/logo.png" alt="club logo">
+      <h2>Team Volta
+      </h2>
+      <p>
+      </p>
+      <div class="contact-info">
+        <p><strong>President:</strong> Sarang Jayant Khadse
+        </p>
+        <p><strong>Faculty Coordinator:</strong> Prof. Dr. Bhumeshwar Patle
+        </p>
+        <p><strong>Contact:</strong> sarangjkhadse@gmail.com
+        </p>
+      </div>
+      <div class="btn-group">
+        <button><a href="#" target="_blank">Learn More</a></button>
+      </div>
+    </div>
+    <div class="card_club" data-aos="zoom-in">
+      <img src="../images/cover_images/logo.png" alt="club logo">
+      <h2>ISBJ Movie Club
+      </h2>
+      <p>The ISBJ Movie Club is a dynamic community united by their devotion to the art of storytelling on the silver
+        screen. With an unwavering passion for cinematic brilliance, members gather to explore, analyze, and revel in
+        the rich tapestry of films. From timeless classics to cutting-edge works, the club offers a platform for
+        enthusiasts to immerse themselves in diverse cinematic experiences. Through lively discussions, screenings, and
+        interactive sessions, participants uncover the intricacies of filmmaking while exchanging valuable insights and
+        perspectives.
+      </p>
+      <div class="contact-info">
+        <p><strong>President:</strong> Amogh Singh
+        </p>
+        <p><strong>Faculty Coordinator:</strong> Prof. Sambit Pal
+        </p>
+        <p><strong>Contact:</strong> amoghsingh000@gmail.com
+        </p>
+      </div>
+      <div class="btn-group">
+        <button><a href="#" target="_blank">Learn More</a></button>
+      </div>
+    </div>
+    <div class="card_club" data-aos="zoom-in">
+      <img src="../images/cover_images/logo.png" alt="club logo">
+      <h2>Mechanical Engineering Student Association
+      </h2>
+      <p>
+      </p>
+      <div class="contact-info">
+        <p><strong>President:</strong> Maviya Tambe
+
+        </p>
+        <p><strong>Faculty Coordinator:</strong> Prof.Shashank Gawade
+        </p>
+        <p><strong>Contact:</strong> tambemawiya120@gmail.com
+        </p>
+      </div>
+      <div class="btn-group">
+        <button><a href="#" target="_blank">Learn More</a></button>
+      </div>
+    </div>
+    <div class="card_club" data-aos="zoom-in">
+      <img src="../images/cover_images/logo.png" alt="club logo">
+      <h2>Samarpan Club
+      </h2>
+      <p>
+        MESA, standing as a beacon of innovation and collaboration in mechanical engineering, is dedicated to empowering
+        students with knowledge, skills, and opportunities for academic and professional excellence. Through diverse
+        events, workshops, and projects, MESA inspires creativity, fosters leadership, and builds camaraderie among
+        members. With a commitment to pushing the boundaries of mechanical engineering, MESA serves as a catalyst for
+        growth, exploration, and success in both academic and professional endeavors. Join MESA on a journey of
+        discovery, innovation, and endless possibilities.
+      </p>
+      <div class="contact-info">
+        <p><strong>President:</strong> Dimple Raju
+
+        </p>
+        <p><strong>Faculty Coordinator:</strong>Prof. Komal Gagare
+        </p>
+        <p><strong>Contact:</strong> dimpleofficial43@gmail.com
+        </p>
+      </div>
+      <div class="btn-group">
+        <button><a href="#" target="_blank">Learn More</a></button>
+      </div>
+    </div>
+    <div class="card_club" data-aos="zoom-in">
+      <img src="../images/cover_images/logo.png" alt="club logo">
+      <h2>Hiphop Kanya
+      </h2>
+      <p>
+        Hip-Hop Kanya, a dynamic force in the urban culture scene. With a fusion of rhythmic beats and lyrical prowess,
+        this club embodies the essence of urban expression, captivating audiences worldwide. Rooted in authenticity and
+        storytelling, Hip-Hop Kanya's electrifying performances transcend boundaries, offering a glimpse into the
+        realities of urban life while inspiring hope and resilience. Through their unique blend of lyricism, rhythm, and
+        style, Hip-Hop Kanya invites listeners on a journey of self-discovery and empowerment, celebrating individuality
+        and the power of voice.\
+      </p>
+      <div class="contact-info">
+        <p><strong>President:</strong> Pratiksha Behara
+
+        </p>
+        <p><strong>Faculty Coordinator:</strong> Prof.Dr.Suraj Bhoyar
+        </p>
+        <p><strong>Contact:</strong> pratiksha.behara@gmail.com
+        </p>
+      </div>
+      <div class="btn-group">
+        <button><a href="#" target="_blank">Learn More</a></button>
+      </div>
+    </div>
+    <div class="card_club" data-aos="zoom-in">
+      <img src="../images/cover_images/logo.png" alt="club logo">
+      <h2>Groovance
+      </h2>
+      <p>
+        Groovance, the Classical Dance Club, is dedicated to preserving and promoting the timeless artistry of classical
+        dance forms. With a mission to celebrate heritage and elegance, Groovance offers training sessions,
+        performances, and workshops to nurture talent and foster appreciation for classical dance. Through engaging
+        events, the club aims to enrich the university community with the grace and allure of this traditional form of
+        expression.
+      </p>
+      <div class="contact-info">
+        <p><strong>President:</strong> Khushi Warang
+        </p>
+        <p><strong>Faculty Coordinator:</strong> Prof. Aditi Riswadkar
+        </p>
+        <p><strong>Contact:</strong> aditi.riswadkar@mituniversity.edu.in
+        </p>
+      </div>
+      <div class="btn-group">
+        <button><a href="#" target="_blank">Learn More</a></button>
+      </div>
+    </div>
+    <div class="card_club" data-aos="zoom-in">
+      <img src="../images/cover_images/logo.png" alt="club logo">
+      <h2>Muse
+      </h2>
+      <p>
+        The Muse Music Club is a dynamic community dedicated to fostering creativity, expression, and musical
+        exploration. With a commitment to inclusivity and support, the club offers a platform for musicians of all
+        levels to connect, collaborate, and grow. From jam sessions to workshops, performances to open mic nights,
+        members are encouraged to unleash their artistic potential and contribute to the vibrant tapestry of musical
+        innovation. </p>
+      <div class="contact-info">
+        <p><strong>President:</strong> Shrey Mishra
+        </p>
+        <p><strong>Faculty Coordinator:</strong> Prof.Dr.Suraj Bhoyar
+        </p>
+        <p><strong>Contact:</strong> shreymishra49@gmail.com
+        </p>
+      </div>
+      <div class="btn-group">
+        <button><a href="#" target="_blank">Learn More</a></button>
+      </div>
+    </div>
+    <div class="card_club" data-aos="zoom-in">
+      <img src="../images/cover_images/logo.png" alt="club logo">
+      <h2>AWS Cloud Club
+      </h2>
+      <p>
+        The AWS Club at MIT ADT University is dedicated to exploring Amazon Web Services and cloud computing technologies through hands-on workshops, projects, and certification preparation. Our club offers opportunities to learn from industry experts, participate in hackathons, and connect with like-minded peers. Join us to enhance your cloud skills and prepare for a future in technology! </p>
+      <div class="contact-info">
+        <p><strong>President:</strong> 
+        </p>
+        <p><strong>Faculty Coordinator:</strong> Dr.Rajni Sajjan
+        </p>
+        <p><strong>Contact:</strong>
+        </p>
+      </div>
+      <div class="btn-group">
+        <button><a href="#" target="_blank">Learn More</a></button>
+      </div>
+    </div>
+    <div class="card_club" data-aos="zoom-in">
+      <img src="../images/cover_images/logo.png" alt="club logo">
+      <h2>Java Brewers Club
+      </h2>
+      <p>
+The Java Brewers Club at MIT ADT University focuses on mastering Java programming through interactive sessions, coding challenges, and real-world projects. We provide a platform for students to enhance their coding skills, collaborate on innovative solutions, and prepare for careers in software development. Join us to learn, code, and brew your passion for Java!</p>
+      <div class="contact-info">
+        <p><strong>President:</strong> 
+        </p>
+        <p><strong>Faculty Coordinator:</strong> Prof. Rahul More
+        </p>
+        <p><strong>Contact:</strong>
+        </p>
+      </div>
+      <div class="btn-group">
+        <button><a href="#" target="_blank">Learn More</a></button>
+      </div>
+    </div>
+    <div class="card_club" data-aos="zoom-in">
+      <img src="../images/cover_images/logo.png" alt="club logo">
+      <h2>Microsoft Learn Student Chapter (MLSC)
+      </h2>
+      <p>
+        The Microsoft Learn Student Chapter at MIT ADT University is dedicated to empowering students with Microsoft technologies through hands-on learning, workshops, and collaborative projects. We offer opportunities to deepen your skills in areas like Azure, .NET, and more, while connecting with industry experts and fellow tech enthusiasts. Join us to enhance your knowledge and prepare for a future in tech with Microsoft tools and platforms!</p>
+      <div class="contact-info">
+        <p><strong>President:</strong> 
+        </p>
+        <p><strong>Faculty Coordinator:</strong> Prof. Abhishek Dhore
+        </p>
+        <p><strong>Contact:</strong>
+        </p>
+      </div>
+      <div class="btn-group">
+        <button><a href="#" target="_blank">Learn More</a></button>
+      </div>
+    </div>
+    <div class="card_club" data-aos="zoom-in">
+      <img src="../images/cover_images/logo.png" alt="club logo">
+      <h2>Arcade
+      </h2>
+      <p>
+        The Arcade Club at MIT ADT University is all about celebrating the joy of gaming and game development. We bring together students who are passionate about retro and modern games to explore game design, development, and play. Whether you're a casual gamer or an aspiring game developer, come be a part of our community where we dive into the world of games and share the excitement!</p>
+      <div class="contact-info">
+        <p><strong>President:</strong> 
+        </p>
+        <p><strong>Faculty Coordinator:</strong> Prof. Shubhra Mathur
+        </p>
+        <p><strong>Contact:</strong>
+        </p>
+      </div>
+      <div class="btn-group">
+        <button><a href="#" target="_blank">Learn More</a></button>
+      </div>
+    </div>
+    <div class="card_club" data-aos="zoom-in">
+      <img src="../images/cover_images/logo.png" alt="club logo">
+      <h2>IEEE EMBS Society
+      </h2>
+      <p>
+        The IEEE EMBS Society at MIT ADT University is dedicated to exploring the intersection of engineering and medicine, focusing on cutting-edge advancements in biomedical technologies. Our society engages in activities such as workshops, seminars, and collaborative projects to enhance knowledge in areas like medical imaging, bioinstrumentation, and healthcare innovation. Through our initiatives, we aim to inspire and equip students with the skills needed to contribute to the future of healthcare technology.</p>
+      <div class="contact-info">
+        <p><strong>President:</strong> 
+        </p>
+        <p><strong>Faculty Coordinator:</strong> Dr. Reena Pagare
+        </p>
+        <p><strong>Contact:</strong>
+        </p>
+      </div>
+      <div class="btn-group">
+        <button><a href="#" target="_blank">Learn More</a></button>
+      </div>
+    </div>
+    <div class="card_club" data-aos="zoom-in">
+      <img src="../images/cover_images/logo.png" alt="club logo">
+      <h2>IEEE CIS Society
+      </h2>
+      <p>
+        The IEEE CIS Society at MIT ADT University focuses on the fields of computational intelligence, including areas such as neural networks, fuzzy systems, and evolutionary computation. Our society organizes workshops, seminars, and hands-on projects to help students gain a deeper understanding of intelligent systems and their applications. We aim to foster innovation and research in computational intelligence, preparing students to tackle complex challenges in technology and automation.</p>
+      <div class="contact-info">
+        <p><strong>President:</strong> 
+        </p>
+        <p><strong>Faculty Coordinator:</strong> Dr. Jayshree Prasad
+        </p>
+        <p><strong>Contact:</strong>
+        </p>
+      </div>
+      <div class="btn-group">
+        <button><a href="#" target="_blank">Learn More</a></button>
+      </div>
+    </div>
+    <div class="card_club" data-aos="zoom-in">
+      <img src="../images/cover_images/logo.png" alt="club logo">
+      <h2>ARjuna Club
+      </h2>
+      <p>
+The ARjuna Club at MIT ADT University is focused on exploring the exciting world of augmented reality (AR). Our club provides a platform for students to learn about AR technologies, engage in hands-on projects, and develop innovative AR applications. We aim to foster creativity and technical skills, helping members bring virtual elements to life and redefine user experiences through augmented reality.</p>
+      <div class="contact-info">
+        <p><strong>President:</strong> 
+        </p>
+        <p><strong>Faculty Coordinator:</strong> Prof. Rajkumar Patil
+        </p>
+        <p><strong>Contact:</strong>
+        </p>
+      </div>
+      <div class="btn-group">
+        <button><a href="#" target="_blank">Learn More</a></button>
+      </div>
+    </div>
+    <div class="card_club" data-aos="zoom-in">
+      <img src="../images/cover_images/logo.png" alt="club logo">
+      <h2>Words Worth Club
+      </h2>
+      <p>
+        The Words Worth Club at MIT ADT University celebrates the power of language and creative expression. We bring together students who are passionate about writing, poetry, and storytelling through workshops, literary discussions, and writing competitions. Our club provides a supportive environment for aspiring writers to hone their craft, share their work, and explore the art of words.</p>
+      <div class="contact-info">
+        <p><strong>President:</strong> 
+        </p>
+        <p><strong>Faculty Coordinator:</strong> Prof. Jayshree Nalkar
+        </p>
+        <p><strong>Contact:</strong>
+        </p>
+      </div>
+      <div class="btn-group">
+        <button><a href="#" target="_blank">Learn More</a></button>
+      </div>
+    </div>
+    <div class="card_club" data-aos="zoom-in">
+      <img src="../images/cover_images/logo.png" alt="club logo">
+      <h2>ASTECH Club
+      </h2>
+      <p>
+        The ASTECH Club at MIT ADT University focuses on advancing knowledge in aerospace and space technology. We engage students through workshops, projects, and seminars on topics such as spacecraft design, satellite technology, and space exploration. Our club aims to inspire and prepare the next generation of aerospace engineers and enthusiasts by exploring the latest innovations and challenges in the field.</p>
+      <div class="contact-info">
+        <p><strong>President:</strong> 
+        </p>
+        <p><strong>Faculty Coordinator:</strong> Dr. Harshawardhan Bhatkar
+        </p>
+        <p><strong>Contact:</strong>
+        </p>
+      </div>
+      <div class="btn-group">
+        <button><a href="#" target="_blank">Learn More</a></button>
+      </div>
+    </div>
+    <div class="card_club" data-aos="zoom-in">
+      <img src="../images/cover_images/logo.png" alt="club logo">
+      <h2>Indian Society for Technical Education (ISTE) Faculty Chapter
+      </h2>
+      <p>
+        The Indian Society for Technical Education (ISTE) at MIT ADT University is dedicated to fostering technical excellence and professional development among students. Our chapter organizes workshops, seminars, and technical events to enhance skills and knowledge in various engineering and technology fields. We aim to create opportunities for students to engage with industry experts, participate in innovative projects, and prepare for successful careers in engineering and technology.</p>
+      <div class="contact-info">
+        <p><strong>President:</strong> 
+        </p>
+        <p><strong>Faculty Coordinator:</strong> Dr. Jagannath Nalawade, Dr. N.P.Kulkarni
+        </p>
+        <p><strong>Contact:</strong>
+        </p>
+      </div>
+      <div class="btn-group">
+        <button><a href="#" target="_blank">Learn More</a></button>
+      </div>
+    </div>
+  </div>
+<footer class="footer" id="footer" style="margin-top: 40px;">
+  <div class="widget_endpage" id="endpage">
+      <div class="endpage-widget">
+          Council Connect
+          <h4 style="color: white;">Connecting students through leadership and service</h4>
+          <div class="links">
+              <a href="https://www.instagram.com/impactmitadt" target="_blank"><i
+                      class="fab fa-instagram w3-hover-opacity"></i></a>
+              <a href="https://x.com/mitadtpune" target="_blank"><i class="fab fa-twitter w3-hover-opacity"></i></a>
+              <a href="https://www.facebook.com/mitadtuniversity" target="_blank"><i class="fab fa-facebook w3-hover-opacity"></i></a>
+              <a href="https://www.linkedin.com/in/surajbhoyar/" target="_blank"><i class="fab fa-linkedin w3-hover-opacity"></i></a>
+          </div>
+      </div>
+      <div class="container">
+          <div class="foot_nav">
+              <input class="foot_nav foot_nav-home" id="home" type="button" value="Home" onclick="location.href='index.html'"/>
+              <input class="foot_nav foot_nav-act" id="act" type="button" value="Events" onclick="location.href='events.html'"/>
+          </div>
+          <div class="foot_nav1">
+              <input class="foot_nav foot_nav-rev" id="rev" type="button" value="Clubs" onclick="location.href='clubs.html'"/>
+              <input class="foot_nav1 foot_nav1-privacy" id="Privacy" type="button" value="Privacy policy" onclick="location.href='#'"/>
+          </div>
+          
+      </div>
+      <div class="footer_btn">
+          <button class="footer_button" style="background-color: #4CAF50;" onclick="window.open('https://chat.whatsapp.com/LSei1YqL5N5L8BGSA5Cglw', '_blank')">
+            <i class="fab fa-whatsapp w3-hover-opacity"></i><p>Whatsapp</p>
+          </button>
+          <button class="footer_button" style="background-color: #0088cc;" onclick="window.open('https://t.me/StudentSuccess_MITADTU', '_blank')">
+            <i class="fab fa-telegram w3-hover-opacity"></i><p>Telegram</p>
+          </button>
+      </div>
+  </div>
+  <div style="color: white; justify-content: center;">Copyright © 2017 All Rights Reserved by MIT University.</div>
+</footer>
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 1600,
+      easing: 'ease-in-out-sine',
+      once: true,
+      mirror: false,
+    });
+  </script>
+</body>
+
+</html>
