@@ -2659,7 +2659,7 @@ figure.snip1390 .profile {
     background: linear-gradient(to bottom, #005fc4, #003366);
     height: 0;
     /* Start with height 0 */
-    transition: height 3s;
+    transition: height 1s;
     /* Slower animation */
     border-radius: 5px;
 }

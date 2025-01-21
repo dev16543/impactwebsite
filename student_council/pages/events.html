@@ -4733,31 +4733,40 @@ This initiative reflects MIT ADT University's strong commitment to social respon
         document.querySelectorAll('.months_23-24, .months_24-25').forEach(function(container) {
             if (container.style.display === 'flex' || container.style.display === '') {
                 var middleLine = container.querySelector('.middle-line');
-                var scrollPosition = window.scrollY;
+                var scrollPosition = window.scrollY - 1300;
                 var documentHeight = document.documentElement.scrollHeight - window.innerHeight;
-                var timelineContainerHeight = document.querySelector('.timeline-container').offsetHeight;
+                var timelineContainerHeight = document.querySelector('.timeline-container').getBoundingClientRect().height;
                 var maxScroll = documentHeight - timelineContainerHeight;
-                
-                var percentage = (scrollPosition / maxScroll)*185;
-                
-                percentage = Math.min(4900, Math.max(0, percentage));
 
-                middleLine.style.height = percentage + 'vh';
+                var scrollFactor;
+                    if (container.classList.contains('months_23-24')) {
+                        scrollFactor = timelineContainerHeight; // Value for 23-24 timeline
+                    } else if (container.classList.contains('months_24-25')) {
+                        scrollFactor = 5000; // Value for 24-25 timeline
+                    }
+
+                var percentage = ( scrollPosition / scrollFactor)*100;
+                
+                console.log(scrollPosition, documentHeight, timelineContainerHeight, maxScroll);
+                percentage = Math.min(100, Math.max(0, percentage));
+
+                middleLine.style.height = percentage + '%';
+                console.log(middleLine.style.height);
 
                 document.querySelectorAll('.timeline-item').forEach(function(item) {
-                    var itemTop = item.getBoundingClientRect().top + window.scrollY;
+                    var itemTop = item.getBoundingClientRect().top + scrollPosition;
                     var arrow = item.querySelector('.arrow');
                     var horizontalLine = item.querySelector('.horizontal-line');
                     if (scrollPosition + window.innerHeight >= itemTop + item.offsetHeight / 2) {
                         arrow.style.opacity = 1;
-                        horizontalLine.style.width = '25px'; // Adjust width as needed
+                        horizontalLine.style.width = '25px'; 
                         horizontalLine.style.opacity = 1;
                         
                     }
                 });
                 
                 document.querySelectorAll('.month_image').forEach(function(item){
-                    var itemTop = item.getBoundingClientRect().top + window.scrollY;
+                    var itemTop = item.getBoundingClientRect().top + scrollPosition;
                     if (scrollPosition + window.innerHeight >= itemTop + item.offsetHeight / 2) {
                         item.style.opacity = 1;
                     }
